@@ -1,0 +1,44 @@
+<template>
+  <ii-panel height="200px">
+    <h2 slot="title">自定义标题面板</h2>
+    <ii-form ref="form" :model="form" label-width="80px">
+      <ii-form-item label="活动名称">
+        <ii-input v-model="form.name"></ii-input>
+      </ii-form-item>
+      <ii-form-item label="即时配送">
+        <ii-switch v-model="form.delivery"></ii-switch>
+      </ii-form-item>
+      <ii-form-item label="活动性质">
+        <ii-radio-group v-model="form.type" :value-obj.sync="selected_obj" :init-options="select_init_options"></ii-radio-group>
+      </ii-form-item>
+    </ii-form>
+  </ii-panel>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
+      select_init_options: {
+        api_path: './example-data/ii-select.json',
+        req_type: 'get',
+        params: {},
+        label_field: 'desc',
+        value_field: 'name'
+      },
+      selected_obj: {}
+    }
+  },
+  methods: {
+  }
+}
+</script>

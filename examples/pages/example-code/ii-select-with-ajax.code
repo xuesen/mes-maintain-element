@@ -1,0 +1,26 @@
+<template>
+  <ii-form>
+    <ii-form-item label="数据获取功能下拉:" label-width="160px">
+      <ii-select v-model="selected_val" :value-obj.sync="selected_obj" :init-options="select_init_options"></ii-select>
+    </ii-form-item>
+  </ii-form>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      select_init_options: {
+        api_path: './example-data/ii-select.json',
+        req_type: 'get',
+        params: {},
+        label_field: 'desc',
+        value_field: 'name'
+      },
+      selected_val: '',
+      selected_obj: {}
+    }
+  },
+  methods: {
+  }
+}
+</script>

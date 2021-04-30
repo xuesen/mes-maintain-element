@@ -1,0 +1,16 @@
+{
+    "result": "ok",
+    "data": [{
+        "name": "workshop5",
+        "desc": "车间5"
+    },{
+        "name": "workshop2",
+        "desc": "车间2"
+    },{
+        "name": "workshop3",
+        "desc": "车间3"
+    },{
+        "name": "workshop4",
+        "desc": "车间4"
+    }]
+}

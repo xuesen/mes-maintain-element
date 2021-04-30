@@ -1,0 +1,17 @@
+<template>
+  <ii-select-department @select="department_selected"></ii-select-department>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      departments: []
+    }
+  },
+  methods: {
+    department_selected (departments) {
+      this.departments = departments
+    }
+  }
+}
+</script>

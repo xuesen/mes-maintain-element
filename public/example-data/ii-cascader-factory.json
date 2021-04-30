@@ -1,0 +1,16 @@
+{
+    "result": "ok",
+    "data": [{
+        "name": "factory5",
+        "desc": "工厂5"
+    },{
+        "name": "factory2",
+        "desc": "工厂2"
+    },{
+        "name": "factory3",
+        "desc": "工厂3"
+    },{
+        "name": "factory4",
+        "desc": "工厂4"
+    }]
+}

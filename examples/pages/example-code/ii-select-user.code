@@ -1,0 +1,17 @@
+<template>
+  <ii-select-user @select="user_selected"></ii-select-user>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      users: []
+    }
+  },
+  methods: {
+    user_selected (users) {
+      this.users = users
+    }
+  }
+}
+</script>

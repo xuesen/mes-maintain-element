@@ -1,0 +1,17 @@
+<template>
+  <ii-select-user-only @select="one_user_selected"></ii-select-user-only>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      one_user: {}
+    }
+  },
+  methods: {
+    one_user_selected (user) {
+      this.one_user = user
+    }
+  }
+}
+</script>

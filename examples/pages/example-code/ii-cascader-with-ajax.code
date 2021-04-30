@@ -1,0 +1,26 @@
+<template>
+  <ii-form>
+    <ii-form-item label="数据获取功能级联:" label-width="160px">
+      <ii-cascader v-model="cascader_selected_val" :value-obj.sync="cascader_selected_obj" :init-options="cascader_init_options"></ii-cascader>
+    </ii-form-item>
+  </ii-form>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      cascader_init_options: {
+        data_source: [
+          { api_path: './example-data/ii-cascader-factory.json', req_type: 'get', params: {}, label_field: 'desc', value_field: 'name' },
+          { api_path: './example-data/ii-cascader-workshop.json', req_type: 'get', params: {}, filter: 'factoryname', label_field: 'desc', value_field: 'name' }
+        ],
+        value_path: ['factory', 'workshop']
+      },
+      cascader_selected_val: '',
+      cascader_selected_obj: {}
+    }
+  },
+  methods: {
+  }
+}
+</script>

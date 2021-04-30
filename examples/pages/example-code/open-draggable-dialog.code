@@ -1,0 +1,33 @@
+<template>
+  <div>
+    <ii-button @click="open_draggable_dialog">打开窗口</ii-button>
+    <ii-draggable-dialog top="20" :visible="show" title="mydialog" size="size1" @close="handle_close" @closed="close_diag">
+      blank
+      <span slot="footer" class="dialog-footer">
+      <ii-button type="text" @click="handle_cancel()">{{$t('button.cancel')}}</ii-button>
+      <ii-button type="primary" @click="handle_save()">{{$t('button.save')}}</ii-button>
+      </span>
+    </ii-draggable-dialog>
+  </div>
+</template>
+<script>
+export default {
+  methods: {
+    open_draggable_dialog () {
+      this.show = true
+    },
+    handle_save () {
+      this.show = false
+    },
+    handle_cancel () {
+      this.show = false
+    },
+    handle_close () {
+      this.show = false
+    },
+    close_diag () {
+      console.log('dialog close')
+    }
+  }
+}
+</script>

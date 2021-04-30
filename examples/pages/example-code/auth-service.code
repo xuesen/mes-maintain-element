@@ -1,0 +1,55 @@
+<template>
+  <ii-form>
+    <ii-form-item label="Auth服务接口:" label-width="160px">
+      用户是否在组中结果：{{result1}}
+      <br>
+      查询指定组中用户列表：{{JSON.stringify(result2)}}
+      <br>
+      查询指定用户所在的组：{{JSON.stringify(result3)}}
+      <br>
+      获取第一个Account.login like ‘%指定用户名’的account信息：{{JSON.stringify(result4)}}
+    </ii-form-item>
+  </ii-form>
+</template>
+<script>
+import { AuthService } from '../../../packages/index.js'
+export default {
+  data () {
+    return {
+      result1: '',
+      result2: [],
+      result3: [],
+      result4: []
+    }
+  },
+  methods: {
+  },
+  async mounted () {
+    let r1 = await AuthService.IfUserInRole({
+      auth_service_type: this.$session.get('auth_service_type'),
+      application: this.$session.get('application'),
+      role_name: 'TE_Role',
+      login: 'ITC\\ITC010010'
+    })
+    this.result1 = r1.data
+    let r2 = await AuthService.GetUsersByRoleName({
+      auth_service_type: this.$session.get('auth_service_type'),
+      application: this.$session.get('application'),
+      role_name: 'TE_Role'
+    })
+    this.result2 = r2.data
+    let r3 = await AuthService.GetRolesByUser({
+      auth_service_type: this.$session.get('auth_service_type'),
+      application: this.$session.get('application'),
+      employee_code: 'ITC\\ITC110003'
+    })
+    this.result3 = r3.data
+    let r4 = await AuthService.FindUser({
+      auth_service_type: this.$session.get('auth_service_type'),
+      application: this.$session.get('application'),
+      employee_code: 'ITC\\ITC110003'
+    })
+    this.result4 = r4.data
+  }
+}
+</script>

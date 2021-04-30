@@ -1,0 +1,28 @@
+<template>
+  <ii-filter
+    size="size2"
+    :fetch-data-api="fetch_data_api"
+    :delete-data-api="delete_data_api"
+    :table-column="table_column"
+    @select="data_selected"></ii-filter>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      fetch_data_api: { api_path: './datacenterservice/line/findEnabledWhereLike', req_type: 'post' },
+      table_column: [{ title: 'line.code', value: 'code', filter_params: { code: '_xxx_', cascades: [{entity: 'workshop', cascades: [{entity: 'factory'}]}] }, width: 120 },
+        { title: 'line.name', value: 'name', filter_params: { name: '_xxx_', cascades: [{entity: 'workshop', cascades: [{entity: 'factory'}]}] }, width: 120 },
+        { title: 'line.desc', value: 'desc', filter_params: { desc: '_xxx_', cascades: [{entity: 'workshop', cascades: [{entity: 'factory'}]}] }, width: 250 },
+        { title: 'workshop.name', value: 'workshop.name', filter_params: { cascades: [{entity: 'workshop', condition: { name: '_xxx_' }, cascades: [{entity: 'factory'}]}] }, width: 120 },
+        { title: 'factory.name', formater: (row) => { return <ii-button>{row.name}</ii-button> }, value: 'workshop.factory.name', filter_params: { cascades: [{entity: 'workshop', cascades: [{entity: 'factory', condition: { name: '_xxx_' }}]}] }, width: 120 }],      
+      data: {}
+    }
+  },
+  methods: {
+    data_selected (data) {
+      this.data = data
+    }
+  }
+}
+</script>

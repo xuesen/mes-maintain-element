@@ -1,0 +1,21 @@
+<template>
+  <ii-quick-input ref="quick_input" @nextData="handle_input"></ii-quick-input>
+</template>
+<script>
+export default {
+  data () {
+    return {
+    }
+  },
+  methods: {
+    handle_input (data) {
+      await this.$ii_message('warn', data)
+      this.$refs.quick_input.focus()
+      this.$refs.quick_input.get_input_data()
+    }
+  },
+  mounted () {
+    this.$refs.quick_input.get_input_data()
+  }
+}
+</script>

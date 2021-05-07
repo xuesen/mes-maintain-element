@@ -7,8 +7,11 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? './' : './',
 
   // outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'
-
   outputDir: 'dist',
+
+  // 是否为 Babel 或 TypeScript 使用 thread-loader。
+  // 该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建。
+  parallel: require('os').cpus().length > 1,
 
   chainWebpack: config => {
     const svgRule = config.module.rule('svg')
@@ -96,7 +99,7 @@ module.exports = {
     // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
     proxy: {
       '/rbpcservice': {
-        // target: 'http://10.190.80.224:8087',
+        // target: 'http://localhost:58855',
         target: 'http://10.191.4.79:8077',
         changeOrigin: true,
         pathRewrite: {
@@ -124,14 +127,14 @@ module.exports = {
           '^/storageservice': ''
         }
       },
-      // '/datacenterservice/api': {
-      '/datacenterservice': {
+      '/datacenterservice/api': {
+      // '/datacenterservice': {
         target: 'http://localhost:59966',
         // target: 'http://10.190.50.61:8096/maintain/datacenterservice',
         changeOrigin: true,
         pathRewrite: {
-          // '^/datacenterservice/api': '/api/IIMes/maintain'
-          '^/datacenterservice': ''
+          '^/datacenterservice/api': '/api/IIMes/maintain'
+          // '^/datacenterservice': ''
         }
       },
       '/dataservice': {

@@ -1,5 +1,5 @@
 
-import iielement from 'mes-common'
+import iielement from 'xts-mes-common'
 import { merge } from 'lodash'
 let Messages = {}
 merge(Messages, iielement.MessagesBase, {

@@ -26,11 +26,32 @@ _.merge(Messages, iielement.MessagesBase, {
       desc: '描述',
       nameForWO: ''
     },
+    process: {
+      moduleName: '工序',
+      code: '工序代码',
+      name: '工序名称',
+      desc: '描述',
+      ismultiwo: '支持多工单批处理',
+      yes: '是',
+      no: '否',
+      stagename: '工序区段',
+      typename: '工序类型'
+    },
     stage: {
       module_name: '生产阶段',
       code: '生产阶段代码',
       name: '生产阶段名称',
       desc: '描述'
+    },
+    terminal: {
+      moduleName: '工作站',
+      processname: '工序',
+      linename: '生产线',
+      code: '工作站代码',
+      name: '工作站名称',
+      desc: '描述',
+      ip: '数采IP',
+      rowButtonGroupLabel: '编辑/删除/添加设备'
     },
     button: {
       add: 'Add',
